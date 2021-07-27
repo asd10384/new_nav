@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <%- include('../module/header.ejs') %>
+    <title><%- title %></title>
+    <script src="../js/check.js"></script>
+  </head>
+  <body>
+    <%- include('../module/menu.ejs') %>
+    <div class="main">
+      <div class="title">
+        <pre>
+자동자가진단 알림확인 버튼을 눌러
+알림이 오는지 확인해보세요.
+
+알림이 오지 않는다면
+다른 브라우저를 이용해주세요.
+
+알림이 오지 않더라도
+자동 자가진단은 이용 가능합니다.
+
+(Internet Explorer 는 지원하지 않습니다.)
+        </pre>
+      </div>
+      <button type="button" class="btn" onclick="javascript=location.href='/selfcheck'">자가진단</button><br/>
+      <button type="button" id="check" onclick="check();">자동 자가진단<br/>알림확인</button>
+    </div>
+  </body>
+</html>
