@@ -34,6 +34,37 @@ body {
 /* 시계 끝 */
 
 /* nav 시작 */
+.toggle {
+  position: absolute;
+  top: 20px;
+  left: 1.5%;
+  width: 50px;
+  height: 50px;
+  background: #4d5bf9;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.toggle.active {
+  background: #ff4d89;
+}
+.toggle ion-icon {
+  position: absolute;
+  color: #fff;
+  font-size: 34px;
+  display: none;
+}
+.toggle ion-icon.open,
+.toggle.active ion-icon.close {
+  display: block;
+}
+.toggle.active ion-icon.open,
+.toggle ion-icon.close {
+  display: none;
+}
+
 .nav {
   position: fixed;
   top: 105px;
@@ -53,14 +84,13 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 255px;
   padding-left: 5%;
   padding-top: 40px;
 }
 .nav ul li {
   position: relative;
   list-style: none;
-  width: 100%;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
@@ -136,37 +166,6 @@ body {
   height: 60px;
   line-height: 60px;
   white-space: normal;
-}
-
-.toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 50px;
-  height: 50px;
-  background: #4d5bf9;
-  border-radius: 10px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.toggle.active {
-  background: #ff4d89;
-}
-.toggle ion-icon {
-  position: absolute;
-  color: #fff;
-  font-size: 34px;
-  display: none;
-}
-.toggle ion-icon.open,
-.toggle.active ion-icon.close {
-  display: block;
-}
-.toggle.active ion-icon.open,
-.toggle ion-icon.close {
-  display: none;
 }
 /* nav 끝 */
 
