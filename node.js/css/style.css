@@ -11,6 +11,7 @@
 body {
   min-height: 100vh;
   background: #3c3c3c;
+  margin-bottom: 10%;
 }
 
 /* 시계 */
@@ -21,7 +22,7 @@ body {
   font-size: 100%;
   text-align: center;
 }
-#clock > #nowTimes > a {
+#clock #nowTimes a {
   display: block;
   color: white;
   font-size: 1.2em;
@@ -38,23 +39,22 @@ body {
   top: 105px;
   left: 1.5%;
   bottom: 1.5%;
-  width: 70px;
+  width: 0px;
   border-radius: 10px;
   box-sizing: initial;
-  border-left: 5px solid #4d5bf9;
   background: #4d5bf9;
   transition: width 0.5s;
   overflow-x: hidden;
 }
 .nav.active {
-  width: 250px;
+  width: 255px;
 }
 .nav ul {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  padding-left: 4%;
+  padding-left: 5%;
   padding-top: 40px;
 }
 .nav ul li {

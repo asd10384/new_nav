@@ -3,6 +3,7 @@ addEventListener('load', function () {
   let menuToggle = document.querySelector('.toggle');
   let nav = document.querySelector('.nav');
   menuToggle.onclick = function() {
+    console.log(nav.style.display);
     menuToggle.classList.toggle('active');
     nav.classList.toggle('active');
   }
@@ -18,5 +19,4 @@ addEventListener('load', function () {
       list[i].className = 'list active';
     }
   }
-  
 });

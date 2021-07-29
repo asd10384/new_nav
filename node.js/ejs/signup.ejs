@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <%- include('../module/header.ejs') %>
+    <title><%- title %></title>
+      
+    <% if (data.err) { %>
+      <script type="text/javascript">
+        alert('<%- data.err %>');
+      </script>
+    <% } %>
+  </head>
+  <body>
+    <%- include('../module/menu.ejs') %>
+    <div class="main">
+      <div class="signup">
+        <p class="loding" id="loding" style="display: none;">회원가입 하는중...</p>
+        <form action="/signup" method="POST">
+          <p class="text">이름 (본명)</p><input class="box" id="name" type="text" name="name" placeholder="꼭 본명으로 적어주세요." required/><br/>
+          <p class="text">아이디</p><input class="box" id="id" type="text" name="id" required/><br/>
+          <p class="text">비밀번호</p><input class="box" id="pw" type="password" name="pw" required onkeyup="return check('pw')"/><br/>
+          <div class="err" id="err.pw"></div>
+          <p class="text">생일</p><input class="box" id="date" type="date" name="birthday" required value="2004-01-01"/><br/>
+          <p class="text">지역</p><input class="box" id="area" type="text" name="area" required value="부산" placeholder="ex: 서울"/><br/>
+          <p class="text">학교</p><input class="box" id="school" type="text" name="school" required value="부산남일고등학교" placeholder="ex: 부산남일고등학교" onkeyup="return check('school')"/><br/>
+          <div class="err" id="err.school"></div>
+          <p class="text">자가진단비밀번호</p><input class="box" id="selfpw" type="text" required name="selfpw" placeholder="ex: 1111" onkeypress="return checknumber(event)" onkeyup="return check('selfpw')"/><br/>
+          <div class="err" id="err.selfpw"></div>
+                  
+          <input class="btn" type="submit" value="회원가입"/>
+        </form>
+      </div>
+      <div class="btn">
+        <button type="button" class="btn" onclick="javascript=location.href='/login'">로그인</button>
+      </div>
+    </div>
+    <script type="text/javascript">
+      function check(id='') {
+        var val = document.getElementById(id).value;
+        var text = '';
+        if (id === 'pw') {
+          if (String(val).length < 8) {
+            text = '비밀번호는 8자리 이상으로 해야합니다.';
+          }
+        }
+        if (id === 'school') {
+          if (val.indexOf('학교') === -1) {
+            text = '마지막은 학교로 끝나야합니다.';
+          }
+        }
+        if (id === 'selfpw') {
+          if (String(val).length < 4 || String(val).length > 4) {
+            text = '비밀번호는 숫자 4자리입니다.';
+          }
+        }
+        return document.getElementById(`err.${id}`).innerHTML = text;
+      }
+      function checknumber(event) {
+        if (event.key >= 0 && event.key <= 9) {
+          document.getElementById('loding').style.display = 'block';
+          return true;
+        }
+        document.getElementById('loding').style.display = 'none';
+        return false;
+      }
+    </script>
+  </body>
+</html>

@@ -1,10 +1,10 @@
 
-.main > .title {
+.main .title {
   font-size: 125%;
   margin-bottom: 1%;
 }
 
-.main > .btn {
+.main .btn {
   margin-top: 3%;
   font-size: 150%;
   font-weight: bold;
@@ -12,12 +12,12 @@
   height: auto;
   padding: 1.5% 1.5%;
 }
-.main > .btn:hover {
+.main .btn:hover {
   background-color: rgb(200, 200, 200);
   cursor: pointer;
 }
 
-.main > #check {
+.main #check {
   margin-top: 3%;
   font-size: 95%;
   font-weight: bold;
@@ -25,7 +25,7 @@
   height: auto;
   padding: 0.5% 0.5%;
 }
-.main > #check:hover {
+.main #check:hover {
   background-color: rgb(170, 170, 170);
   cursor: pointer;
 }

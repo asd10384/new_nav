@@ -1,0 +1,50 @@
+
+.main .signup .loding {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  top: 100px;
+  font-size: 15px;
+  color: rgb(255, 255, 129);
+}
+
+.main .signup form .err {
+  margin-top: 1%;
+  font-size: 90%;
+  color: red;
+}
+.main .signup form .text {
+  text-align: center;
+  margin-top: 1.5%;
+  font-size: 120%;
+}
+.main .signup form .box {
+  text-align: center;
+  font-size: 100%;
+  padding: 0.5% 0.5%;
+}
+.main .signup form #date {
+  font-size: 100%;
+  padding: 0.5% 1.7%;
+}
+
+.main .signup form .btn {
+  margin-top: 1%;
+  font-size: 100%;
+  font-weight: bold;
+  height: auto;
+  padding: 0.6% 0.8%;
+}
+.main .signup form .btn:hover {
+  background-color: rgb(200, 200, 200);
+  cursor: pointer;
+}
+
+.main .btn .btn {
+  margin-top: 1%;
+  font-size: 90%;
+  font-weight: bold;
+  height: auto;
+  padding: 0.5% 0.5%;
+}
