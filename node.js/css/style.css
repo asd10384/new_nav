@@ -48,7 +48,7 @@ body {
   align-items: center;
 }
 .toggle.active {
-  background: #ff4d89;
+  background: #d33838;
 }
 .toggle ion-icon {
   position: absolute;
