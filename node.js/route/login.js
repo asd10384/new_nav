@@ -5,7 +5,6 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const db = require('../database');
-const qdb = require('quick.db');
 const go = require('./go');
 
 // 로그인 시작
@@ -28,8 +27,9 @@ router.post('/login', async (req, res) => {
   if (idcheck) {
     var pwcheck = await User.findOne({ id: id, pw: pw });
     if (pwcheck) {
-      const token = await jwt.sign({
+      const token = jwt.sign({
         id: id,
+        name: pwcheck.name,
         admin: false,
       }, process.env.JWT_SECRET, {
         expiresIn: '1h'

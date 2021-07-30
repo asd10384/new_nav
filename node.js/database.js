@@ -33,7 +33,6 @@ const out = {
           endpoint: String,
           schoolCode: String
         },
-        token: String,
         pw: String,
         time: {
           hour: String,

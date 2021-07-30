@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <%- include('../module/header.ejs') %>
+    <title><%- title %></title>
+  </head>
+  <body>
+    <%- include('../module/menu.ejs') %>
+    <div class="main">
+      <% if (data.id) { %>
+        <p class="title"><%- data.name %>님의 아이디는<br><%- data.id %><br>입니다.</p>
+        <div class="btn">
+          <button type="button" class="btn" onclick="javascript=location.href='/login'">로그인</button>
+        </div>
+      <% } else { %>
+        <p class="title">자신이 설정했던 이름과<br>자가진단 비밀번호를 입력해주세요.</p>
+        <div class="searchid">
+          <form action="/searchid" method="POST">
+            <p class="text">이름</p><input class="box" type="text" name="name" required/><br/>
+            <p class="text">자가진단 비밀번호</p><input class="box" type="text" name="selfpw" required/><br/>
+            
+            <input class="btn" type="submit" value="아이디찾기"/>
+          </form>
+        </div>
+        <div class="btn">
+          <button type="button" class="btn" onclick="javascript=location.href='/login'">로그인</button><br>
+          <button type="button" class="btn" onclick="javascript=location.href='/signup'">회원가입</button>
+        </div>
+      <% } %>
+    </div>
+  </body>
+</html>

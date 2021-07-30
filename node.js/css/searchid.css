@@ -1,24 +1,28 @@
 
-.main .login form .text {
+.main .title {
+  font-size: 130%;
+}
+
+.main .searchid form .text {
   text-align: center;
   margin-top: 1.5%;
   margin-bottom: 0.5%;
   font-size: 140%;
 }
-.main .login form .box {
+.main .searchid form .box {
   text-align: center;
   font-size: 100%;
   padding: 0.5% 0%;
 }
 
-.main .login form .btn {
+.main .searchid form .btn {
   margin-top: 2%;
   font-size: 120%;
   font-weight: bold;
   height: auto;
   padding: 0.6% 0.8%;
 }
-.main .login form .btn:hover {
+.main .searchid form .btn:hover {
   background-color: rgb(200, 200, 200);
   cursor: pointer;
 }

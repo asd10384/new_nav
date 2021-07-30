@@ -10,13 +10,13 @@ const func = require('../func');
 const go = require('./go');
 
 // 시작
-router.get('/example', async (req, res) => {
+router.get('/setting', async (req, res) => {
   return go(req, res, {
     code: 200,
-    index: `example`,
-    active: `example`,
-    title: `example`,
-    domain: '/example'
+    index: `setting`,
+    active: `설정`,
+    title: `설정`,
+    domain: '/setting'
   });
 });
 // 끝

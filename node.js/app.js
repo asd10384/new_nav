@@ -4,11 +4,11 @@ const path = require('path');
 const http = require('http');
 const fs = require('fs');
 const express = require('express');
+const cors = require('cors');
 const flash = require('connect-flash');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const sessionParser = require('express-session');
-const db = require('./database');
 const qdb = require('quick.db');
 
 const app = express();
@@ -16,6 +16,10 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/ejs'));
 
+app.use(cors({
+  origin: '*',
+  // methods: ['GET','POST']
+}));
 app.use(flash());
 app.use(sessionParser({
   secret: process.env.SESSION_SECRET,
@@ -29,20 +33,16 @@ app.use(express.static(__dirname + '/'));
 
 const route = fs.readdirSync('./route').filter(file => file.endsWith('.js'));
 route.forEach((file) => {
-  if (file !== 'go.js') app.use(require(`./route/${file.replace('.js', '')}`));
+  if (file !== 'go.js' && file !== 'https.js') app.use(require(`./route/${file.replace('.js', '')}`));
 });
 
 app.use(async function (req, res) {
   return res.status(404).render(`err`, {
     domain: process.env.DOMAIN,
     data: {
-      text: `페이지를 찾을수 없습니다.`
+      text: `현재 제작중...`
     }
   });
-});
-
-app.use(async function (err, req, res) {
-  return res.status(500).send(err);
 });
 
 app.listen(process.env.PORT, async function () {
