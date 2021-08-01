@@ -1,0 +1,14 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <%- include('../module/header.ejs') %>
+    <title><%- title %></title>
+  </head>
+  <body>
+    <%- include('../module/menu.ejs') %>
+    <div class="main">
+      
+    </div>
+  </body>
+</html>

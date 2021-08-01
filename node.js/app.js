@@ -2,6 +2,7 @@
 require('dotenv').config();
 const path = require('path');
 const http = require('http');
+const https = require('https');
 const fs = require('fs');
 const express = require('express');
 const cors = require('cors');
@@ -33,7 +34,7 @@ app.use(express.static(__dirname + '/'));
 
 const route = fs.readdirSync('./route').filter(file => file.endsWith('.js'));
 route.forEach((file) => {
-  if (file !== 'go.js' && file !== 'https.js') app.use(require(`./route/${file.replace('.js', '')}`));
+  if (file !== 'go.js') app.use(require(`./route/${file.replace('.js', '')}`));
 });
 
 app.use(async function (req, res) {
@@ -45,9 +46,19 @@ app.use(async function (req, res) {
   });
 });
 
-app.listen(process.env.PORT, async function () {
-  await listen(`NODEJS Route IS ONLINE`);
-});
+if (JSON.parse(process.env.HTTPS)) {
+  https.createServer({
+    key: fs.readFileSync(__dirname + '/ssl/private.key'),
+    cert: fs.readFileSync(__dirname + '/ssl/certificate.crt'),
+    ca: fs.readFileSync(__dirname + '/ssl/ca_bundle.crt')
+  }, app).listen(process.env.PORT, async function() {
+    console.log(`NODEJS Route IS ONLINE (HTTPS)\nDOMAIN : ${process.env.DOMAIN}\nPORT: ${process.env.PORT}\nqdb: ${qdblog()}`);
+  });
+} else {
+  app.listen(process.env.PORT, async function () {
+    await listen(`NODEJS Route IS ONLINE (HTTP)`);
+  });
+}
 
 async function listen(text = '') {
   console.log(`${text}\nDOMAIN : ${process.env.DOMAIN}\nPORT: ${process.env.PORT}\nqdb: ${qdblog()}`);

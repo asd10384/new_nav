@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <%- include('../module/header.ejs') %>
+    <title><%- title %></title>
+  </head>
+  <body>
+    <%- include('../module/menu.ejs') %>
+    <div class="main">
+      <% if (data.change == 'id') { %>
+        <form action="/profile" method="POST">
+          <p class="text">변경하실 아이디를 적어주세요.</p><input class="box" type="text" name="chid" required/><br/>
+          
+          <input class="btn" type="submit" value="변경"/>
+        </form>
+      <% } else if (data.change == 'pw') { %>
+        <form action="/profile" method="POST">
+          <p class="text">변경하실 비밀번호를 적어주세요.</p><input class="box" id="chpw" type="password" name="chpw" required onkeyup="return check()"/><br/>
+          <div class="err" id="err.chpw"></div>
+          <input class="btn" type="submit" value="변경"/>
+        </form>
+        <script>
+          function check() {
+              let val = document.getElementById('chpw').value;
+              if (String(val).length < 8) {
+                text = '비밀번호는 8자리 이상으로 해야합니다.';
+              } else {
+                text = '';
+              }
+              return document.getElementById(`err.chpw`).innerHTML = text;
+          }
+        </script>
+      <% } else if (data.check) { %>
+        <div class="div name">
+          <a class="title">이름 : </a>
+          <input class="data" type="text" value="<%- data.name %>" readonly>
+          <button type="button" class="btn off" disabled>변경불가</button>
+        </div>
+        <div class="div id">
+          <a class="title">아이디 : </a>
+          <input class="data" type="text" value="<%- data.id %>" readonly>
+          <button type="button" class="btn" onclick="javascript=location.href='/profile/change/id'">변경</button>
+        </div>
+        <div class="div pw">
+          <a class="title">비밀번호 : </a>
+          <input class="data" type="text" value="********" readonly>
+          <button type="button" class="btn" onclick="javascript=location.href='/profile/change/pw'">변경</button>
+        </div>
+        <script>
+          document.querySelectorAll('.data').forEach((data) => {
+          let resize = data.value.length;
+          data.setAttribute('size', resize);
+          });
+        </script>
+      <% } else { %>
+        <form action="/profile" method="POST">
+          <p class="text">계정확인을 위해<br>비밀번호를 입력해주세요.</p><input class="box" type="password" name="pw" required/><br/>
+          
+          <input class="btn" type="submit" value="확인"/>
+        </form>
+      <% } %>
+    </div>
+  </body>
+</html>

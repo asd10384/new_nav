@@ -1,0 +1,54 @@
+
+form .err {
+  margin-top: 1%;
+  font-size: 90%;
+  color: red;
+}
+
+form .text {
+  font-size: 130%;
+  margin-bottom: 20px;
+}
+form .box {
+  text-align: center;
+  font-size: 100%;
+  padding: 0.5% 0%;
+}
+form .btn {
+  margin-top: 2%;
+  font-size: 120%;
+  font-weight: bold;
+  height: auto;
+  padding: 0.6% 0.8%;
+}
+form .btn:hover {
+  background-color: rgb(200, 200, 200);
+  cursor: pointer;
+}
+
+.div {
+  margin-bottom: 10px;
+}
+
+.main .title {
+  font-size: 150%;
+}
+
+.data {
+  text-align: center;
+  resize: none;
+  font-size: 130%;
+  margin-right: 5px;
+}
+
+.btn {
+  border-radius: 10%;
+  font-size: 90%;
+  font-weight: bold;
+  height: auto;
+  padding: 4px 6px;
+}
+.btn .btn:hover {
+  background-color: rgb(200, 200, 200);
+  cursor: pointer;
+}

@@ -29,8 +29,7 @@ router.post('/login', async (req, res) => {
     if (pwcheck) {
       const token = jwt.sign({
         id: id,
-        name: pwcheck.name,
-        admin: false,
+        name: pwcheck.name
       }, process.env.JWT_SECRET, {
         expiresIn: '1h'
       });

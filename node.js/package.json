@@ -21,6 +21,7 @@
     "fs": "0.0.1-security",
     "hcs.js": "^1.1.2",
     "http": "0.0.1-security",
+    "https": "^1.0.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.3",
     "path": "^0.12.7",
