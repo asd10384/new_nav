@@ -28,7 +28,7 @@
           <p class="text">자가진단비밀번호</p><input class="box" id="selfpw" type="text" required name="selfpw" placeholder="ex: 1111" onkeypress="return checknumber(event)" onkeyup="return check('selfpw')"/><br/>
           <div class="err" id="err.selfpw"></div>
                   
-          <input class="btn" type="submit" value="회원가입"/>
+          <input class="btn" type="submit" value="회원가입" onclick="javascript=loding()"/>
         </form>
       </div>
       <div class="btn">
@@ -36,6 +36,7 @@
       </div>
     </div>
     <script type="text/javascript">
+      document.getElementById('loding').style.display = 'none';
       function check(id='') {
         var val = document.getElementById(id).value;
         var text = '';
@@ -58,11 +59,12 @@
       }
       function checknumber(event) {
         if (event.key >= 0 && event.key <= 9) {
-          document.getElementById('loding').style.display = 'block';
           return true;
         }
-        document.getElementById('loding').style.display = 'none';
         return false;
+      }
+      function loading() {
+        document.getElementById('loding').style.display = 'block';
       }
     </script>
   </body>

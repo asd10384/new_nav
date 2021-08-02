@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <%- include('../module/header.ejs') %>
+    <title><%- title %></title>
+  </head>
+  <body>
+    <%- include('../module/menu.ejs') %>
+    <div class="main">
+      <% if (data.opt == 'delete') { %>
+        <form action="/delete" method="POST">
+          <p class="text">정말 계정을 삭제하시겠습니까?</p>
+          <input class="btn" type="submit" value="삭제"/>
+        </form>
+        <br>
+        <button type="button" class="btn" onclick="javascript=location.href='/setting'">돌아가기</button>
+      <% } else if (data.check) { %>
+        <div class="div id">
+          <a class="title">아이디 : </a>
+          <input class="data" type="text" value="<%- data.id %>" readonly>
+        </div>
+        <div class="div delete">
+          <br>
+          <button type="button" class="btn" onclick="javascript=location.href='/setting/delete'">계정삭제</button>
+        </div>
+        <script>
+          document.querySelectorAll('.data').forEach((data) => {
+          let resize = data.value.length;
+          data.setAttribute('size', resize);
+          });
+        </script>
+      <% } else { %>
+        <form action="/setting" method="POST">
+          <p class="text">계정확인을 위해<br>비밀번호를 입력해주세요.</p><input class="box" type="password" name="pw" required/><br/>
+          
+          <input class="btn" type="submit" value="확인"/>
+        </form>
+      <% } %>
+    </div>
+  </body>
+</html>

@@ -6,15 +6,6 @@ const jwt = require('jsonwebtoken');
 const db = require('../database');
 const go = require('./go');
 
-router.get('/delete', async (req, res) => {
-  return go(req, res, {
-    code: 200,
-    index: `delete`,
-    title: `계정삭제`,
-    domain: '/delete',
-    check: true
-  });
-});
 router.post('/delete', async (req, res) => {
   const User = db.module.user();
   const token = req.cookies['token'];

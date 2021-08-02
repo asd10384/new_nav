@@ -1,0 +1,35 @@
+
+.main .selfcheck form #onoff {
+  margin: 0 0.5vh;
+}
+.main .selfcheck form {
+  font-size: 2.2vh;
+}
+.main .selfcheck form input {
+  margin-top: 2vh;
+}
+.main .selfcheck form #time {
+  font-size: 100%;
+  height: auto;
+  padding: 0.4% 0.4%;
+}
+
+.main .selfcheck form .btn {
+  margin-top: 2%;
+  font-size: 100%;
+  font-weight: bold;
+  height: auto;
+  padding: 0.4% 0.6%;
+}
+.main .selfcheck form .btn:hover {
+  background-color: rgb(200, 200, 200);
+  cursor: pointer;
+}
+
+.main .data {
+  margin-top: 3vh;
+  font-size: 2vh;
+}
+.main .d {
+  margin-bottom: 1vh;
+}

@@ -37,7 +37,6 @@ router.post('/login', async (req, res) => {
       console.log(`로그인 성공 : ${id}`);
       return res.status(200).send(`
         <script type=text/javascript>
-          alert('로그인 성공');
           window.location='/';
         </script>
       `);

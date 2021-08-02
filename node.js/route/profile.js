@@ -5,8 +5,6 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const db = require('../database');
-const qdb = require('quick.db');
-const func = require('../func');
 const go = require('./go');
 
 // 시작

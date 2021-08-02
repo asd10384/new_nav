@@ -42,7 +42,7 @@ router.post('/signup', async (req, res) => {
   }
 
   birthday = birthday.split('-');
-  const birthday6 = `${birthday[0].slice(-2)}${birthday[1]}${birthday[2]}`;
+  let birthday6 = `${birthday[0].slice(-2)}${birthday[1]}${birthday[2]}`;
   var check = await User.findOne({ id: id });
   if (check) {
     return res.send(`
@@ -111,6 +111,7 @@ router.post('/signup', async (req, res) => {
       </script>
     `);
   }).then(() => {
+    console.log(`${name}님 회원가입 성공!\n아이디: ${id}`);
     return res.send(`
       <script type=text/javascript>
         alert('${name}님 회원가입 성공!');

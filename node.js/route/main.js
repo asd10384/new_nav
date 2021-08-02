@@ -5,7 +5,6 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const webpush = require('web-push');
 const db = require('../database');
-const qdb = require('quick.db');
 const func = require('../func');
 const autoselfchecktimer = require('../autoselfcheck');
 const go = require('./go');
@@ -25,19 +24,10 @@ router.get('/', async (req, res) => {
 
 // web push start
 webpush.setVapidDetails(`mailto:${process.env.EMAIL}`, process.env.PUBLICKEY, process.env.PRIVATEKEY);
-var checkg = qdb.get(`db.autoself.timer`);
-if (!checkg) {
-  qdb.set(`db.autoself.timer`, true);
-  autoselfchecktimer.timer(webpush);
-}
+autoselfchecktimer.timer(webpush);
 
 router.post('/subscribe(/:check)?', async (req, res) => {
   webpush.setVapidDetails(`mailto:${process.env.EMAIL}`, process.env.PUBLICKEY, process.env.PRIVATEKEY);
-  var checkg = qdb.get(`db.autoself.timer`);
-  if (!checkg) {
-    qdb.set(`db.autoself.timer`, true);
-    autoselfchecktimer.timer(webpush);
-  }
   const subscription = req.body;
   res.status(201).json({});
   if (req.params.check && req.params.check === 'check') {

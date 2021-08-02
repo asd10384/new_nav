@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <%- include('../module/header.ejs') %>
+    <title><%- title %></title>
+    <script src="/js/client.js"></script>
+  </head>
+  <body>
+    <%- include('../module/menu.ejs') %>
+    <div class="main">
+      <div class="selfcheck">
+        <form action="/selfcheck" method="POST">
+          <% if (data.onoff === 'ON') { %>
+            <a class="onoff">자동자가진단</a> : <input type="radio" name="onoff" value="on" checked/><a id="onoff">ON</a> <input type="radio" name="onoff" value="off"/><a id="onoff">OFF</a><br/>
+          <% } else { %>
+            <a class="onoff">자동자가진단</a> : <input type="radio" name="onoff" value="on"/><a id="onoff">ON</a> <input type="radio" name="onoff" value="off" checked/><a id="onoff">OFF</a><br/>
+          <% } %>
+          <a class="time">시간</a> : <input id="time" type="time" name="time" value="<%- data.time %>" required/><br/>
+
+          <input id="submit" class="btn" type="submit" value="설정완료" onclick="return getdb()"/>
+        </form>
+      </div>
+      <div class="data">
+        <% if (login) { %>
+          <div class="d name"><%- name %>님의 자가진단 설정 확인</div>
+          <div class="d onoff">자동 자가진단 : <%- data.onoff %></div>
+          <% if (data.onoff === 'ON') { %>
+            <div class="d time">자동 자가진단 시간 : <%- data.time %></div>
+          <% } %>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>
