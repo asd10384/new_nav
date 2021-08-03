@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const webpush = require('web-push');
 const db = require('../database');
 const func = require('../func');
-const autoselfchecktimer = require('../autoselfcheck');
+const timer = require('../timer');
 const go = require('./go');
 
 // 메인 시작
@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
 
 // web push start
 webpush.setVapidDetails(`mailto:${process.env.EMAIL}`, process.env.PUBLICKEY, process.env.PRIVATEKEY);
-autoselfchecktimer.timer(webpush);
+timer.timer(webpush);
 
 router.post('/subscribe(/:check)?', async (req, res) => {
   webpush.setVapidDetails(`mailto:${process.env.EMAIL}`, process.env.PUBLICKEY, process.env.PRIVATEKEY);

@@ -113,7 +113,8 @@ router.post('/profile', async (req, res) => {
         });
         const token = jwt.sign({
           id: req.body.chid,
-          name: decode.name
+          name: decode.name,
+          admin: decode.admin
         }, process.env.JWT_SECRET, {
           expiresIn: '1h'
         });

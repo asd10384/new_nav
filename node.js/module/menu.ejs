@@ -6,7 +6,18 @@
     
     <div class="navname">
       <% if (login) { %>
-        <a href="/profile" class="navdata"><%- name %>님</a>
+        <a href="/profile" class="navdata">
+          <%- name %>님
+          <% if (admin) { %>
+            <br>(관리자)
+            <style>
+              .navname {
+                font-size: 100%;
+                top: 20px;
+              }
+            </style>
+          <% } %>
+        </a>
       <% } else { %>
         <a href="/login" class="navdata">로그인</a>
       <% } %>
@@ -48,6 +59,15 @@
               <span class="title">자가진단</span>
             </a>
           </li>
+          <% if (admin) { %>
+            <li class="list<%- (active == '관리') ? ' active' : '' %>">
+              <b></b><b></b>
+              <a href="/manage">
+                <span class="icon"><ion-icon name="hammer-outline"></ion-icon></span>
+                <span class="title">관리</span>
+              </a>
+            </li>
+          <% } %>
           <li class="list<%- (active == '설정') ? ' active' : '' %>">
             <b></b><b></b>
             <a href="/setting">

@@ -22,8 +22,7 @@ async function go(req = express.request, res = express.response, set = {
       </script>
     `);
     if (!dec) set.check = false;
-    let name = jwt.decode(token);
-    if (name) name = name.name;
+    let decode = jwt.decode(token);
     return res.status(set.code).render(set.index, {
       domain: process.env.DOMAIN,
       url: (!set.domain || set.domain == '') ? process.env.DOMAIN : process.env.DOMAIN + set.domain,
@@ -32,7 +31,8 @@ async function go(req = express.request, res = express.response, set = {
       title: (set.title === '') ? `자동자가진단` : `자동자가진단 - ${set.title}`,
       data: set.data,
       login: set.check,
-      name: (name) ? name : ''
+      name: (decode && decode.name) ? decode.name : '',
+      admin: (decode && decode.admin) ? JSON.parse(decode.admin) : false
     });
   });
 }

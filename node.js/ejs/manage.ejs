@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <%- include('../module/header.ejs') %>
+    <title><%- title %></title>
+    <script src="../js/client.js"></script>
+    <% if (data.altext) { %>
+      <script>
+        alert('<%- data.altext %>');
+        location.href='/manage';
+      </script>
+    <% } %>
+  </head>
+  <body>
+    <%- include('../module/menu.ejs') %>
+    <div class="main">
+      <% if (data.admin) { %>
+        <div class="title">
+          <p>
+            버튼을 누르면
+            <br>
+            자가진단이 됩니다.
+          </p>
+        </div>
+        <div class="all">
+          <button type="button" class="btn" name="all">전체 자가진단</button>
+        </div>
+        <div class="manage"><%- data.utext %>
+        </div>
+        <script type="text/javascript">
+          let button = document.querySelectorAll('button.btn');
+          for (let i=0; i<button.length; i++) {
+            button[i].addEventListener('click', () => {
+              let val = button[i].getAttribute('name');
+              var form = document.createElement('form');
+              var el = document.createElement('input');
+              form.style.display = 'none';
+              form.action = '/manage';
+              form.method = 'POST';
+              el.name = 'sc';
+              el.value = val;
+              form.appendChild(el);
+              document.body.appendChild(form);
+              form.submit();
+            });
+          }
+        </script>
+      <% } else { %>
+        <pre>관리자 계정을 입력해주세요.</pre>
+        <div class="login">
+          <form action="/manage" method="POST">
+            <a class="id">아이디</a> : <input class="text" type="text" name="id" required/><br/>
+            <a class="pw">비밀번호</a> : <input class="text" type="password" name="pw" required/><br/>
+                
+            <input class="btn" type="submit" value="로그인"/>
+          </form>
+        </div>
+      <% } %>
+    </div>
+  </body>
+</html>

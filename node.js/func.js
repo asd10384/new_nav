@@ -20,13 +20,6 @@ async function now_date(time = new Date) {
   var min = time.getMinutes();
   var sec = time.getSeconds();
   var week = weeklist[wday];
-  if (hour >= 24) {
-    hour = hour - 24;
-    day = day + 1;
-    wday = wday + 1;
-    week = (wday > 6) ? weeklist[wday - 6] : weeklist[wday];
-  }
-  console.log(week);
   var nowtime = {
     'year': year,
     'month': month,
@@ -55,7 +48,7 @@ function now_date_addtime(time = new Date) {
     hour = hour - 24;
     day = day + 1;
     wday = wday + 1;
-    week = (wday >= 6) ? weeklist[wday - 6] : weeklist[wday];
+    week = (wday > 6) ? weeklist[wday - 7] : weeklist[wday];
   }
   var nowtime = {
     'year': year,

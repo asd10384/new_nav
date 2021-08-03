@@ -5,19 +5,9 @@ const router = express.Router();
 const func = require('../func');
 const go = require('./go');
 
-const cron = require('node-cron');
-async function handleAsync() {
-  const sum = await func.getCovid();
-  return sum;
-}
-cron.schedule('*/1 * * * *', async () => {
-  // console.log('2분마다');
-  await handleAsync();
-});
-
 // 시작
 router.get('/api/covid', async (req, res) => {
-  const covidobj = await handleAsync();
+  const covidobj = await func.getCovid();
   return go(req, res, {
     code: 200,
     index: `api/covid`,

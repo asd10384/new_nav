@@ -29,12 +29,13 @@ router.post('/login', async (req, res) => {
     if (pwcheck) {
       const token = jwt.sign({
         id: id,
-        name: pwcheck.name
+        name: pwcheck.name,
+        admin: (pwcheck.admin) ? true : false
       }, process.env.JWT_SECRET, {
         expiresIn: '1h'
       });
       res.cookie(`token`, token, { maxAge: 12 * 60 * 60 * 1000 });
-      console.log(`로그인 성공 : ${id}`);
+      console.log(`로그인 성공 : ${id}${(pwcheck && pwcheck.admin) ? ' (관리자)' : ''}`);
       return res.status(200).send(`
         <script type=text/javascript>
           window.location='/';

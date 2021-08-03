@@ -1,0 +1,60 @@
+
+.main .title {
+  font-size: 2.5vh;
+  margin-bottom: 2vh;
+}
+
+.main pre {
+  font-size: 150%;
+}
+
+.main .login form .text {
+  text-align: center;
+  margin-bottom: 1.5%;
+  font-size: 120%;
+  padding: 0.5% 0.5%;
+}
+
+.main .login form .btn {
+  margin-top: 1%;
+  font-size: 120%;
+  font-weight: bold;
+  height: auto;
+  padding: 0.6% 0.8%;
+}
+.main .login form .btn:hover {
+  background-color: rgb(200, 200, 200);
+  cursor: pointer;
+}
+.main .login form .id {
+  margin: 0 0.7%;
+}
+
+.main .all {
+  margin-bottom: 5%;
+}
+.main .all .btn {
+  margin-top: 1%;
+  font-size: 150%;
+  font-weight: bold;
+  height: auto;
+  padding: 0.5% 0.5%;
+}
+.main .all .btn:hover {
+  cursor: pointer;
+  background-color: rgb(220, 220, 220);
+}
+.main .manage .c {
+  margin-bottom: 1%;
+}
+.main .manage .c .btn {
+  margin-top: 1%;
+  font-size: 120%;
+  font-weight: bold;
+  height: auto;
+  padding: 0.5% 0.5%;
+}
+.main .manage .c .btn:hover {
+  cursor: pointer;
+  background-color: rgb(220, 220, 220);
+}
