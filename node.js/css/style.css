@@ -17,30 +17,27 @@ body {
 /* 시계 */
 #clock {
   background: url(../image/menu-bg.png) repeat;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  font-size: 100%;
+  padding-top: 1.8vh;
+  padding-bottom: 1.8vh;
   text-align: center;
 }
 #clock #nowTimes a {
   pointer-events: none;
   display: block;
   color: white;
-  font-size: 1.2em;
+  font-size: 1.7vh;
   text-decoration: none;
   text-transform: uppercase;
-  text-shadow: 0 -1px 0 #0d0d0d;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.7);
 }
 /* 시계 끝 */
 
 /* nav 시작 */
 .navname {
   z-index: 100;
-  font-size: 120%;
+  font-size: 2vh;
   position: absolute;
-  top: 28px;
-  right: 2%;
+  top: 3vh;
+  right: 2vh;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -58,10 +55,10 @@ body {
 .toggle {
   z-index: 100;
   position: absolute;
-  top: 20px;
-  left: 1.5%;
-  width: 50px;
-  height: 50px;
+  top: 2vh;
+  left: 2vh;
+  width: 5vh;
+  height: 5vh;
   background: #4d5bf9;
   border-radius: 10px;
   cursor: pointer;
@@ -75,7 +72,7 @@ body {
 .toggle ion-icon {
   position: absolute;
   color: #fff;
-  font-size: 34px;
+  font-size: 4vh;
   display: none;
 }
 .toggle ion-icon.open,
@@ -90,26 +87,26 @@ body {
 .nav {
   z-index: 100;
   position: fixed;
-  top: 105px;
-  left: 1.5%;
-  bottom: 1.5%;
-  width: 0px;
+  top: 9.4ch;
+  left: 1vh;
+  bottom: 1vh;
+  width: 0vh;
   border-radius: 10px;
   box-sizing: initial;
   background: #4d5bf9;
-  transition: width 0.5s;
+  transition: width 0.5s; /* 메뉴 열리고 닫치는 시간 */
   overflow-x: hidden;
 }
 .nav.active {
-  width: 255px;
+  width: 26vh;
 }
 .nav ul {
   position: absolute;
   top: 0;
   left: 0;
-  width: 255px;
-  padding-left: 5%;
-  padding-top: 40px;
+  width: 26vh;
+  padding-left: 1.2vh;
+  padding-top: 4vh;
 }
 .nav ul li {
   position: relative;
@@ -122,8 +119,8 @@ body {
 }
 .nav ul li b:nth-child(1) {
   position: absolute;
-  top: -20px;
-  height: 20px;
+  top: -2vh;
+  height: 2vh;
   width: 100%;
   background: #fff;
   display: none;
@@ -140,8 +137,8 @@ body {
 }
 .nav ul li b:nth-child(2) {
   position: absolute;
-  bottom: -20px;
-  height: 20px;
+  bottom: -2vh;
+  height: 2vh;
   width: 100%;
   background: #fff;
   display: none;
@@ -174,26 +171,26 @@ body {
 .nav ul li a .icon {
   position: relative;
   display: block;
-  min-width: 60px;
-  height: 60px;
-  line-height: 70px;
+  min-width: 6vh;
+  height: 6vh;
+  line-height: 7.8vh;
   text-align: center;
 }
 .nav ul li a .icon ion-icon {
-  font-size: 1.5em;
+  font-size: 2.5vh;
 }
 .nav ul li a .title {
   position: relative;
   display: block;
-  padding-left: 7px;
-  height: 60px;
-  line-height: 60px;
+  padding-left: 0.1vh;
+  height: 6.2vh;
+  line-height: 6.2vh;
   white-space: normal;
 }
 /* nav 끝 */
 
 .main {
   color: white;
-  margin-top: 50px;
+  margin-top: 5vh;
   text-align: center;
 }

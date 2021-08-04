@@ -25,10 +25,10 @@ async function go(req = express.request, res = express.response, set = {
     let decode = jwt.decode(token);
     return res.status(set.code).render(set.index, {
       domain: process.env.DOMAIN,
-      url: (!set.domain || set.domain == '') ? process.env.DOMAIN : process.env.DOMAIN + set.domain,
+      url: (set.domain) ? process.env.DOMAIN + set.domain : process.env.DOMAIN,
       index: set.index,
       active: set.active,
-      title: (set.title === '') ? `자동자가진단` : `자동자가진단 - ${set.title}`,
+      title: (set.title) ? `자동자가진단 - ${set.title}` : `자동자가진단`,
       data: set.data,
       login: set.check,
       name: (decode && decode.name) ? decode.name : '',

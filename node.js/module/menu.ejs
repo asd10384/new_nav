@@ -12,8 +12,8 @@
             <br>(관리자)
             <style>
               .navname {
-                font-size: 100%;
-                top: 20px;
+                font-size: 1.6vh;
+                top: 2vh;
               }
             </style>
           <% } %>
@@ -29,69 +29,60 @@
     <div class="nav">
       <ul>
         <!--
-          <li class="list<%- (active == 'EXAMPLE') ? ' active' : '' %>">
-            <b></b><b></b>
+          <li class="list<%- (active == 'EXAMPLE') ? ' active' : '' %>"><b></b><b></b>
             <a href="/EXAMPLE">
               <span class="icon"></span>
               <span class="title">EXAMPLE</span>
             </a>
           </li>
         -->
-        <li class="list<%- (active == '홈') ? ' active' : '' %>">
-          <b></b><b></b>
+        <li class="list<%- (active == '홈') ? ' active' : '' %>"><b></b><b></b>
           <a href="/">
             <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
             <span class="title">홈</span>
           </a>
         </li>
         <% if (login) { %>
-          <li class="list<%- (active == '내정보') ? ' active' : '' %>">
-            <b></b><b></b>
+          <li class="list<%- (active == '내정보') ? ' active' : '' %>"><b></b><b></b>
             <a href="/profile">
               <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></span>
               <span class="title">내정보</span>
             </a>
           </li>
-          <li class="list<%- (active == '자가진단') ? ' active' : '' %>">
-            <b></b><b></b>
+          <li class="list<%- (active == '자가진단') ? ' active' : '' %>"><b></b><b></b>
             <a href="/selfcheck">
               <span class="icon"><ion-icon name="shield-checkmark-outline"></ion-icon></span>
               <span class="title">자가진단</span>
             </a>
           </li>
           <% if (admin) { %>
-            <li class="list<%- (active == '관리') ? ' active' : '' %>">
-              <b></b><b></b>
+            <li class="list<%- (active == '관리') ? ' active' : '' %>"><b></b><b></b>
               <a href="/manage">
                 <span class="icon"><ion-icon name="hammer-outline"></ion-icon></span>
                 <span class="title">관리</span>
               </a>
             </li>
           <% } %>
-          <li class="list<%- (active == '설정') ? ' active' : '' %>">
-            <b></b><b></b>
+          <li class="list<%- (active == '설정') ? ' active' : '' %>"><b></b><b></b>
             <a href="/setting">
               <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
               <span class="title">설정</span>
             </a>
           </li>
-          <li class="list<%- (active == '로그아웃') ? ' active' : '' %>">
-            <b></b><b></b>
+          <li class="list<%- (active == '로그아웃') ? ' active' : '' %>"><b></b><b></b>
             <a href="/logout">
               <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
               <span class="title">로그아웃</span>
             </a>
           </li>
         <% } else { %>
-          <li class="list<%- (active == '로그인') ? ' active' : '' %>">
-            <b></b><b></b>
+          <li class="list<%- (active == '로그인') ? ' active' : '' %>"><b></b><b></b>
             <a href="/login">
               <span class="icon"><ion-icon name="log-in-outline"></ion-icon></span>
               <span class="title">로그인</span>
             </a>
           </li>
-          <li class="list<%- (active == '회원가입') ? ' active' : '' %>">
-            <b></b><b></b>
+          <li class="list<%- (active == '회원가입') ? ' active' : '' %>"><b></b><b></b>
             <a href="/signup">
               <span class="icon"><ion-icon name="person-add-outline"></ion-icon></span>
               <span class="title">회원가입</span>

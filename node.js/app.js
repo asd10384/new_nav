@@ -11,6 +11,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const sessionParser = require('express-session');
 const qdb = require('quick.db');
+const go = require('./route/go');
 
 const app = express();
 
@@ -37,11 +38,23 @@ route.forEach((file) => {
   if (file !== 'go.js') app.use(require(`./route/${file.replace('.js', '')}`));
 });
 
-app.use(async function (req, res) {
-  return res.status(404).render(`err`, {
-    domain: process.env.DOMAIN,
+app.use(function (req, res, next) {
+  return go(req, res, {
+    code: 404,
+    index: `err`,
+    title: `에러`,
     data: {
-      text: `현재 제작중...`
+      text: `오류가 발생했습니다.<br>다시 시도해주세요.`
+    }
+  });
+});
+app.use(function (err, req, res, next) {
+  return go(req, res, {
+    code: 500,
+    index: `err`,
+    title: `에러`,
+    data: {
+      text: `사이트에 오류가 발생했습니다.`
     }
   });
 });
@@ -51,7 +64,7 @@ if (JSON.parse(process.env.HTTPS)) {
     key: fs.readFileSync(__dirname + '/ssl/private.key'),
     cert: fs.readFileSync(__dirname + '/ssl/certificate.crt'),
     ca: fs.readFileSync(__dirname + '/ssl/ca_bundle.crt')
-  }, app).listen(process.env.PORT, async function() {
+  }, app).listen(process.env.PORT, function() {
     console.log(`NODEJS Route IS ONLINE (HTTPS)\nDOMAIN : ${process.env.DOMAIN}\nPORT: ${process.env.PORT}\nqdb: ${qdblog()}`);
   });
 } else {

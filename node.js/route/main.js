@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
   return go(req, res, {
     code: 200,
     index: `index`,
-    title: `메인`,
+    title: ``,
     active: '홈',
     check: true,
     nologin: true
