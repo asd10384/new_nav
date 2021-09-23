@@ -1,0 +1,122 @@
+<html>
+
+<head>
+  <title>BLUEB</title>
+</head>
+
+<body>
+  <div>
+    <img src="http://www.blueb.co.kr/SRC/javascript/image1/slot/6.gif" name="1 first">
+    <img src="http://www.blueb.co.kr/SRC/javascript/image1/slot/6.gif" name="1 second">
+    <img src="http://www.blueb.co.kr/SRC/javascript/image1/slot/6.gif" name="1 third">
+  </div>
+  <div>
+    <img src="http://www.blueb.co.kr/SRC/javascript/image1/slot/7.gif" name="2 first">
+    <img src="http://www.blueb.co.kr/SRC/javascript/image1/slot/7.gif" name="2 second">
+    <img src="http://www.blueb.co.kr/SRC/javascript/image1/slot/7.gif" name="2 third">
+  </div>
+  <div>
+    <img src="http://www.blueb.co.kr/SRC/javascript/image1/slot/8.gif" name="3 first">
+    <img src="http://www.blueb.co.kr/SRC/javascript/image1/slot/8.gif" name="3 second">
+    <img src="http://www.blueb.co.kr/SRC/javascript/image1/slot/8.gif" name="3 third">
+  </div>
+  <br>
+  <br>
+  <input type="button" value="  START  " onClick=startGame()>
+  <style>
+    img {
+      width: 30px;
+      height: auto;
+      vertical-align: bottom;
+    }
+  </style>
+  <script>
+    coin = 50
+    bet = 1
+    game = false
+    box1 = true
+    box2 = true
+    box3 = true
+
+    var img = new Array();
+    img[0] = new Image(); img[0].src = "http://www.blueb.co.kr/SRC/javascript/image1/slot/0.gif";
+    img[1] = new Image(); img[1].src = "http://www.blueb.co.kr/SRC/javascript/image1/slot/1.gif";
+    img[2] = new Image(); img[2].src = "http://www.blueb.co.kr/SRC/javascript/image1/slot/2.gif";
+    img[3] = new Image(); img[3].src = "http://www.blueb.co.kr/SRC/javascript/image1/slot/3.gif";
+    img[4] = new Image(); img[4].src = "http://www.blueb.co.kr/SRC/javascript/image1/slot/4.gif";
+    img[5] = new Image(); img[5].src = "http://www.blueb.co.kr/SRC/javascript/image1/slot/5.gif";
+    img[6] = new Image(); img[6].src = "http://www.blueb.co.kr/SRC/javascript/image1/slot/6.gif";
+    img[7] = new Image(); img[7].src = "http://www.blueb.co.kr/SRC/javascript/image1/slot/7.gif";
+    img[8] = new Image(); img[8].src = "http://www.blueb.co.kr/SRC/javascript/image1/slot/8.gif";
+    img[9] = new Image(); img[9].src = "http://www.blueb.co.kr/SRC/javascript/image1/slot/9.gif";
+
+    function keisan() {
+      game = false
+      box1 = true
+      box2 = true
+      box3 = true
+    }
+
+    function end(variable) {
+      if (game == true) {
+        if (variable == 1) box1 = false
+        if (variable == 2) box2 = false
+        if (variable == 3) box3 = false
+      }
+      if ((box1 == false) && (box2 == false) && (box3 == false)) {
+        clearTimeout(tid)
+        keisan()
+      }
+    }
+
+    function hyouji(n1, n2, n3) {
+      n1 = Number(n1)+1;
+      n2 = Number(n2)+1;
+      n3 = Number(n3)+1;
+      if (n1 == 10) n1 = 0;
+      if (n2 == 10) n2 = 0;
+      if (n3 == 10) n3 = 0;
+      if (box1) {
+        document.images["1 first"].src = img[(n1-1 == -1) ? 9 : n1-1].src;
+        document.images["2 first"].src = img[n1].src;
+        document.images["3 first"].src = img[(n1+1 == 10) ? 0 : n1+1].src;
+      }
+      if (box2) {
+        document.images["1 second"].src = img[(n3-1 == -1) ? 9 : n3-1].src;
+        document.images["2 second"].src = img[n2].src;
+        document.images["3 second"].src = img[(n2+1 == 10) ? 0 : n2+1].src;
+      }
+      if (box3) {
+        document.images["1 third"].src = img[(n3-1 == -1) ? 9 : n3-1].src;
+        document.images["2 third"].src = img[n3].src;
+        document.images["3 third"].src = img[(n3+1 == 10) ? 0 : n3+1].src;
+      }
+      tid = setTimeout(`hyouji(${n1},${n2},${n3})`, 100);
+    }
+
+    function stop() {
+      setTimeout('end(1)', random());
+      setTimeout('end(2)', random());
+      setTimeout('end(3)', random());
+    }
+    function random() {
+      let r = (Math.random() * (1500 - 300) + 300).toFixed(3);
+      console.log(r);
+      return r;
+    }
+
+    function startGame() {
+      if (game == false) {
+        game = true;
+        let n1 = document.images["2 first"].src.replace(/http:\/\/www.blueb.co.kr\/SRC\/javascript\/image1\/slot\/|\.gif/g, '');
+        let n2 = document.images["2 second"].src.replace(/http:\/\/www.blueb.co.kr\/SRC\/javascript\/image1\/slot\/|\.gif/g, '');
+        let n3 = document.images["2 third"].src.replace(/http:\/\/www.blueb.co.kr\/SRC\/javascript\/image1\/slot\/|\.gif/g, '');
+        hyouji(n1,n2,n3);
+        stop();
+      }
+    }
+  </SCRIPT>
+
+</body>
+
+</html>
